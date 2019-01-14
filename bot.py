@@ -187,7 +187,7 @@ class ModmailBot(commands.Bot):
 
 
     async def process_modmail(self, message):
-        """Processes messages sent to the bot."""
+        """Mensajes procesados enviados al bot."""
 
         ctx = SimpleNamespace(bot=self, guild=self.modmail_guild)
         converter = commands.EmojiConverter()
@@ -215,9 +215,9 @@ class ModmailBot(commands.Bot):
             pass
 
         blocked_em = discord.Embed(
-            title='Message not sent!',
+            title='¡Mensaje no enviado!',
             color=discord.Color.red(),
-            description='You have been blocked from using modmail.'
+            description='Tú has sido bloqueado en este bot.'
         )
 
         if str(message.author.id) in self.blocked_users:
@@ -422,7 +422,7 @@ class ModmailBot(commands.Bot):
                     html_url = commit_data["html_url"]
                     short_sha = commit_data['sha'][:6]
                     em.add_field(name='Merge Commit', value=f"[`{short_sha}`]({html_url}) {message} - {user['username']}")
-                    print('Updating bot.')
+                    print('Actualizando bot...')
                     channel = self.log_channel
                     await channel.send(embed=em)
 
